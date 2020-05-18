@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/iv_user"
+
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="67dp"
+        android:src="@drawable/boy" />
+
+
+    <EditText
+        android:id="@+id/et_email"
+        android:layout_width="250dp"
+        android:textColor="#181223"
+        android:drawableLeft="@drawable/ic_action_name"
+        android:textColorHint="#181223"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_user"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:ems="10"
+        android:hint="@string/enter_email"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/et_password"
+        android:hint="@string/enter_password"
+        android:textColor="#181223"
+        android:drawableLeft="@drawable/ic_password"
+        android:textColorHint="#181223"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/et_email"
+        android:layout_below="@id/et_email"
+        android:layout_centerHorizontal="true"
+        android:layout_alignStart="@id/et_email"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:textSize="20sp"
+        android:background="@drawable/button_rectangle_pink"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/et_password"
+        android:layout_marginTop="35dp"
+        android:text="@string/login" />
+    <TextView
+        android:id="@+id/tv_register"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/btn_login"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:textSize="15sp"
+        android:text="@string/not_registered"
+        android:layout_height="wrap_content"/>
+    <!--
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_password"
+            android:text="@string/remember_me" />
+            -->
+</RelativeLayout>

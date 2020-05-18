@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">StudentPlanner</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="login">LOGIN</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="not_registered">Not Registered?</string>
+    <string name="name">Name:</string>
+    <string name="email_address">Email Address:</string>
+    <string name="email">Email</string>
+
+    <string name="password">password:</string>
+    <string name="register">Register</string>
+    <string name="enter_pass">Enter Password</string>
+    <string name="your_password">Your Password</string>
+</resources>
