@@ -13,4 +13,11 @@
     <string name="register">Register</string>
     <string name="enter_pass">Enter Password</string>
     <string name="your_password">Your Password</string>
+    <string name="school_name">School Name</string>
+    <string name="name_of_school">Name Of School:</string>
+    <string name="back">Back</string>
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
+    <string name="we_will_help_you_organize_all_your_activities">We will help you organize all your activities</string>
+    <string name="personal_planner">Personal Planner</string>
 </resources>

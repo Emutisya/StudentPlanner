@@ -90,10 +90,10 @@
     <TextView
         android:id="@+id/tv_reg_password"
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_above="@id/et_reg_password"
-        android:layout_alignStart="@id/et_name"
-        android:layout_alignLeft="@id/et_name"
+        android:layout_alignStart="@id/et_reg_password"
+        android:layout_alignLeft="@id/et_reg_password"
         android:layout_marginStart="-1dp"
         android:layout_marginLeft="-1dp"
         android:layout_marginTop="22dp"
@@ -107,10 +107,47 @@
 
         android:layout_width="260dp"
         android:layout_height="50dp"
-        android:layout_below="@id/et_reg_password"
+        android:layout_below="@id/et_school"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
 
         android:text="@string/register" />
 
+
+    <EditText
+        android:id="@+id/et_school"
+        android:layout_width="260dp"
+        android:layout_below="@id/et_reg_password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColorHint="#181223"
+        android:hint="@string/school_name"
+        />
+
+    <TextView
+        android:id="@+id/tv_school"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/et_school"
+        android:layout_alignStart="@id/et_school"
+        android:layout_alignLeft="@id/et_school"
+        android:layout_marginStart="-1dp"
+        android:layout_marginLeft="-1dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="-40dp"
+        android:text="@string/name_of_school"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tv_login_back"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/btn_register"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:textSize="15sp"
+        android:text="@string/back"
+        android:layout_height="wrap_content"/>
 </RelativeLayout>
