@@ -13,11 +13,18 @@
     <string name="register">Register</string>
     <string name="enter_pass">Enter Password</string>
     <string name="your_password">Your Password</string>
-    <string name="school_name">School Name</string>
-    <string name="name_of_school">Name Of School:</string>
+    <string name="campus_name">Campus Name</string>
+    <string name="name_of_campus">Name Of Campus:</string>
     <string name="back">Back</string>
     <string name="skip">Skip</string>
     <string name="next">Next</string>
     <string name="we_will_help_you_organize_all_your_activities">We will help you organize all your activities</string>
     <string name="personal_planner">Personal Planner</string>
+    <string name="course">Course</string>
+    <string name="year">Year</string>
+    <string name="year_of_study">Year of Study</string>
+    <string name="interests">interests</string>
+    <string name="select_your_interests">Select your interests</string>
+    <string name="the_dashboard">The Dashboard</string>
+    <string name="finish_registration">Finish Registration</string>
 </resources>

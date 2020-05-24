@@ -22,9 +22,10 @@ public class Dashboard1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard1);
 
-        backArrow=(ImageView) findViewById(R.id.iv_barrow);
-        tvSkip=(TextView) findViewById(R.id.tv_skip);
-        tvNext=(TextView) findViewById(R.id.tv_next);
+        //Buttons yet to be implemented
+//        backArrow=(ImageView) findViewById(R.id.iv_barrow);
+//        tvSkip=(TextView) findViewById(R.id.tv_skip);
+//        tvNext=(TextView) findViewById(R.id.tv_next);
 
 
 
