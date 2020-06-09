@@ -1,33 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-
-    <ImageView
-        android:id="@+id/iv_user"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+    <TextView
+        android:id="@+id/page_title"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        app:srcCompat="@drawable/girl2"
-        />
+        android:ems="10"
+        android:textSize="50sp"
+        android:text="@string/finish_registration" />
 
     <EditText
         android:id="@+id/et_name"
         android:layout_width="260dp"
-        android:layout_below="@id/iv_user"
         android:layout_centerHorizontal="true"
+        android:layout_below="@id/page_title"
         android:layout_marginTop="40dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
         android:textColorHint="#181223"
-        android:hint="@string/name"
-         />
+        android:hint="@string/course"
+        />
 
     <TextView
         android:id="@+id/tv_name"
@@ -40,7 +36,7 @@
         android:layout_marginLeft="-1dp"
         android:layout_marginTop="22dp"
         android:layout_marginBottom="-40dp"
-        android:text="name"
+        android:text="course"
         android:textSize="16sp" />
 
 
@@ -54,8 +50,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:textColorHint="#181223"
-        android:inputType="textEmailAddress"
-        android:hint="@string/enter_email"
+        android:inputType="number"
+        android:hint="@string/year_of_study"
         />
 
     <TextView
@@ -69,7 +65,7 @@
         android:layout_marginLeft="-1dp"
         android:layout_marginTop="22dp"
         android:layout_marginBottom="-40dp"
-        android:text="@string/email"
+        android:text="@string/year"
         android:textSize="16sp" />
 
 
@@ -84,7 +80,7 @@
         android:ems="10"
         android:textColorHint="#181223"
         android:inputType="textPassword"
-        android:hint="@string/enter_password"
+        android:hint="@string/select_your_interests"
         />
 
     <TextView
@@ -98,56 +94,19 @@
         android:layout_marginLeft="-1dp"
         android:layout_marginTop="22dp"
         android:layout_marginBottom="-40dp"
-        android:text="@string/password"
+        android:text="@string/interests"
         android:textSize="16sp" />
 
     <Button
         android:id="@+id/btn_register"
         android:background="@drawable/button_rectangle_pink"
-
+        android:layout_alignParentBottom="false"
         android:layout_width="260dp"
         android:layout_height="50dp"
-        android:layout_below="@id/et_school"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-
-        android:text="@string/register" />
-
-
-    <EditText
-        android:id="@+id/et_school"
-        android:layout_width="260dp"
         android:layout_below="@id/et_password"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textColorHint="#181223"
-        android:hint="@string/campus_name"
-        />
+        android:text="@string/register" />
 
-    <TextView
-        android:id="@+id/tv_school"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/et_school"
-        android:layout_alignStart="@id/et_school"
-        android:layout_alignLeft="@id/et_school"
-        android:layout_marginStart="-1dp"
-        android:layout_marginLeft="-1dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginBottom="-40dp"
-        android:text="@string/name_of_campus"
-        android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/tv_login_back"
-        android:layout_width="wrap_content"
-        android:layout_below="@id/btn_register"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:textSize="15sp"
-        android:text="@string/back"
-        android:layout_height="wrap_content"/>
 </RelativeLayout>

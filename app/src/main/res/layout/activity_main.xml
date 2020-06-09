@@ -7,8 +7,6 @@
     android:layout_height="match_parent"
 
     tools:context=".LoginActivity">
-]
-
     <include
         layout="@layout/login_layout"
         android:layout_width="match_parent"
