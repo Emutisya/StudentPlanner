@@ -13,6 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.toolbox.StringRequest;
+
 import org.w3c.dom.Text;
 
 public class LoginActivity extends AppCompatActivity {
@@ -43,9 +46,12 @@ Button btnLogin;
         btnLogin.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-
+               login();
             }
         });
 
+    }
+    private void login(){
+       // StringRequest request = new StringRequest(Request.Method.POST, Constant.LOGIN,)
     }
 }
