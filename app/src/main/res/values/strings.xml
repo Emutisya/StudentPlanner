@@ -27,4 +27,5 @@
     <string name="select_your_interests">Select your interests</string>
     <string name="the_dashboard">The Dashboard</string>
     <string name="finish_registration">Finish Registration</string>
+    <string name="response">Response</string>
 </resources>
