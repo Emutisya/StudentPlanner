@@ -28,4 +28,11 @@
     <string name="the_dashboard">The Dashboard</string>
     <string name="finish_registration">Finish Registration</string>
     <string name="response">Response</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dashboard_view">Dashboard View</string>
+    <string name="events_view">Events View</string>
+    <string name="journal_view">Journal View</string>
+    <string name="timetable_view">Timetable View</string>
 </resources>

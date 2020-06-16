@@ -61,7 +61,9 @@ Button btnLogin;
         btnLogin.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-               loginUser();
+                Intent myIntent = new Intent(LoginActivity.this, HomeActivity.class);
+                startActivity(myIntent);
+//               loginUser();
             }
         });
 
