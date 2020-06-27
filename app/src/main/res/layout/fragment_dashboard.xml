@@ -51,8 +51,18 @@
 
     </RelativeLayout>
 
+    <TextView
+        android:id="@+id/tv_debug"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="10th June 2020"
+        android:textSize="15sp"
+        android:paddingLeft="20dp"
+        android:layout_below="@+id/dashboard_top"/>
+
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_below="@+id/dashboard_top"
+        android:id="@+id/recycler_view"
+        android:layout_below="@+id/tv_debug"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
