@@ -52,7 +52,7 @@ public class RegisterActivity extends AppCompatActivity {
         name = findViewById(R.id.et_name);
         email = findViewById(R.id.et_email);
         password = findViewById(R.id.et_password);
-        campusName = findViewById(R.id.et_school);
+        //campusName = findViewById(R.id.et_school);
 
         tvResponse = findViewById(R.id.tv_response);
 

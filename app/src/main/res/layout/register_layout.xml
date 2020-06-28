@@ -6,6 +6,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/logo"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        android:layout_centerInParent="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center_horizontal"
+        android:fontFamily="@font/greatvibes_regular"
+        android:layout_marginTop="30dp"
+        android:text="@string/student_planner" />
 
 
     <ImageView
@@ -13,6 +25,7 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_centerHorizontal="true"
+        android:layout_below="@+id/logo"
         app:srcCompat="@drawable/girl2"
         />
 

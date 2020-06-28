@@ -35,4 +35,5 @@
     <string name="events_view">Events View</string>
     <string name="journal_view">Journal View</string>
     <string name="timetable_view">Timetable View</string>
+    <string name="student_planner">Student Planner</string>
 </resources>
