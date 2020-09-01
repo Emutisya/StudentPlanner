@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -51,11 +52,25 @@ public class DashboardFragment extends Fragment {
 
         recyclerView = (RecyclerView) root.findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(root.getContext()));
 
-        taskList = new ArrayList<>();
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        loadFragmentData();
+        final LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(layoutManager);
+
+        taskList = new ArrayList<Task>();
+        Task newTask = new Task("IAP Class 1","STC","Group work","2 hours");
+        taskList.add(newTask);
+        Task newTask1 = new Task("IAP Class 2","STC","Group work","2 hours");
+        taskList.add(newTask1);
+        Task newTask2 = new Task("IAP Class 3","STC","Group work","2 hours");
+        taskList.add(newTask2);
+        Task newTask3 = new Task("IAP Class 4","STC","Group work","2 hours");
+        taskList.add(newTask3);
+
+//        Passing out data to the adapter
+        myAdapter = new TaskAdapter(taskList, getActivity());
+        recyclerView.setAdapter(myAdapter);
+//        loadFragmentData();
         return root;
     }
 
@@ -67,14 +82,14 @@ public class DashboardFragment extends Fragment {
 
 //        Display some data here using Volley and our adapter
 //        Generating my own array here - should use API response
-            Task newTask = new Task("IAP Class","STC","Group work","2 hours");
-            taskList.add(newTask);
-            tvDebug.setText(newTask.toString());
-            Toast.makeText(getActivity(), "TaskList:"+newTask, Toast.LENGTH_LONG).show();
-
-//        Passing out data to the adapter
-        myAdapter = new TaskAdapter(taskList, getActivity());
-        recyclerView.setAdapter(myAdapter);
+//            Task newTask = new Task("IAP Class","STC","Group work","2 hours");
+//            taskList.add(newTask);
+//            Toast.makeText(getActivity(), "TaskList:"+newTask, Toast.LENGTH_LONG).show();
+//
+////        Passing out data to the adapter
+//        myAdapter = new TaskAdapter(taskList, getActivity());
+//        recyclerView.setAdapter(myAdapter);
+//        recyclerView.setItemAnimator(new DefaultItemAnimator());
         progressDialog.dismiss();
         Log.d("Recycler View", "Data presented end");
 

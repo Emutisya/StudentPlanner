@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <RelativeLayout
         android:id="@+id/task_layout"
@@ -36,7 +36,7 @@
             android:layout_below="@id/task_name"
             android:text="STMB S4"
             android:layout_marginLeft="20dp"
-            android:drawableStart="@drawable/ic_time_grey"
+            android:drawableStart="@drawable/ic_location_grey"
             android:textSize="15sp"
             android:textColor="@color/design_default_color_primary_dark"/>
 

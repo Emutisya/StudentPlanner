@@ -30,7 +30,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     @NonNull
     @Override
     public TaskAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_task,parent,false));
+        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_task, parent,false));
     }
 
     @Override
@@ -39,16 +39,14 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
         final Task currentTask = tasks.get(position);
 
         holder.taskNotes.setText(currentTask.getTaskNotes());
-        holder.taskLocation.setText(currentTask.getTaskLocation());
+        holder.taskDuration.setText(currentTask.getTaskDuration());
         holder.taskName.setText(currentTask.getTaskName());
         holder.taskLocation.setText(currentTask.getTaskLocation());
-
-
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return tasks.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -60,10 +58,10 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            taskName = itemView.findViewById(R.id.task_name);
-            taskDuration = itemView.findViewById(R.id.task_duration);
-            taskLocation = itemView.findViewById(R.id.task_location);
-            taskNotes = itemView.findViewById(R.id.task_notes);
+            taskName = (TextView) itemView.findViewById(R.id.task_name);
+            taskDuration = (TextView) itemView.findViewById(R.id.task_duration);
+            taskLocation = (TextView) itemView.findViewById(R.id.task_location);
+            taskNotes = (TextView) itemView.findViewById(R.id.task_notes);
         }
     }
 }
