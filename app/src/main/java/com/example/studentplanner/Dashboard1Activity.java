@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -32,7 +31,7 @@ public class Dashboard1Activity extends AppCompatActivity {
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i =new Intent(Dashboard1Activity.this, LoginActivity.class);
+                Intent i =new Intent(Dashboard1Activity.this, MainActivity.class);
                 startActivity(i);
             }
         });

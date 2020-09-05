@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,9 +18,7 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
@@ -60,7 +57,7 @@ public class RegisterActivity extends AppCompatActivity {
         tvLoginBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i =new Intent( RegisterActivity.this, LoginActivity.class);
+                Intent i =new Intent( RegisterActivity.this, MainActivity.class);
                 startActivity(i);
             }
         });
@@ -109,7 +106,7 @@ public class RegisterActivity extends AppCompatActivity {
                     Log.d("Response", response.getString("success"));
                     tvResponse.setText(response.getString("message"));
 //                    Redirect user to login page
-                    Intent i =new Intent( RegisterActivity.this, LoginActivity.class);
+                    Intent i =new Intent( RegisterActivity.this, MainActivity.class);
                     startActivity(i);
 
                     Toast.makeText(RegisterActivity.this,"Response received: "+response.getString("message"), Toast.LENGTH_LONG).show();
