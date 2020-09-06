@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import Fragments.LoginFragment;
+import Fragments.SignInFragment;
 
 public class auth extends AppCompatActivity {
 
@@ -12,6 +12,6 @@ public class auth extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth);
-        getSupportFragmentManager().beginTransaction().replace(R.id.frameAuthContainer, new LoginFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frameAuthContainer, new SignInFragment()).commit();
     }
 }
