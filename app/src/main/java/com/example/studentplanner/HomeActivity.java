@@ -14,20 +14,25 @@ import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import Fragments.JournalFragment;
+
 public class HomeActivity extends AppCompatActivity {
-    private Fragment fragment;
+    //private Fragment fragment;
     private FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+fragmentManager = getSupportFragmentManager();
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
-        View navHost = findViewById(R.id.fragment);
-        NavHostFragment navHostFragment  = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.fragment);
-        fragmentManager = getSupportFragmentManager();
-        NavigationUI.setupWithNavController(bottomNavigationView, navHostFragment.getNavController());
+        fragmentManager.beginTransaction().replace(R.id.frameHomeContainer,new JournalFragment()).commit();
+
+        //BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
+     //   View navHost = findViewById(R.id.fragment);
+     //   NavHostFragment navHostFragment  = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.fragment);
+     //   fragmentManager = getSupportFragmentManager();
+    //    NavigationUI.setupWithNavController(bottomNavigationView, navHostFragment.getNavController());
 
 
 //        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

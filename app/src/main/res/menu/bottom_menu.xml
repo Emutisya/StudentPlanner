@@ -3,21 +3,41 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/dashboardFragment"
+        android:id="@+id/item_dashboard"
+        app:showAsAction="always"
         android:title="Dashboard"
         android:icon="@drawable/ic_dashboard_black_24dp"/>
     <item
-        android:id="@+id/timetableFragment"
+        android:id="@+id/item_timetable"
+        app:showAsAction="always"
         android:title="Timetable"
         android:icon="@drawable/ic_event_white"/>
     <item
-        android:id="@+id/journalFragment"
+        android:id="@+id/item_null"
+        android:title=""
+        app:showAsAction="always"
+
+        />
+
+    <item
+        android:id="@+id/item_journal"
+        app:showAsAction="always"
         android:title="Journal"
         android:icon="@drawable/ic_book_white"/>
 
     <item
-        android:id="@+id/eventsFragment"
+        android:id="@+id/item_events"
+        app:showAsAction="always"
         android:title="Events"
         android:icon="@drawable/ic_event_seat"
         />
+<!--
+    <item
+        android:id="@+id/item_account"
+        app:showAsAction="always"
+        android:title="Profile"
+        android:icon="@drawable/ic_baseline_person"
+        />
+
+        -->
 </menu>

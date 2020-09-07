@@ -1,10 +1,9 @@
-package com.example.studentplanner;
+package Fragments;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,14 +12,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.toolbox.JsonObjectRequest;
-
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.example.studentplanner.R;
+import com.example.studentplanner.Task;
+import com.example.studentplanner.TaskAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +41,7 @@ public class DashboardFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_dashboard, container, false);
+        ViewGroup root = (ViewGroup) inflater.inflate(R.layout.layout_dashboard, container, false);
 
         tvDebug = (TextView) root.findViewById(R.id.tv_debug);
 

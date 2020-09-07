@@ -7,22 +7,22 @@
 
     <fragment
         android:id="@+id/dashboardFragment"
-        android:name="com.example.studentplanner.DashboardFragment"
+        android:name="Fragments.DashboardFragment"
         android:label="fragment_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/layout_dashboard" />
     <fragment
         android:id="@+id/timetableFragment"
-        android:name="com.example.studentplanner.TimetableFragment"
+        android:name="Fragments.TimetableFragment"
         android:label="fragment_timetable"
-        tools:layout="@layout/fragment_timetable" />
+        tools:layout="@layout/layout_timetable" />
     <fragment
         android:id="@+id/journalFragment"
-        android:name="com.example.studentplanner.JournalFragment"
+        android:name="Fragments.JournalFragment"
         android:label="fragment_journal"
-        tools:layout="@layout/fragment_journal" />
+        tools:layout="@layout/layout_journal" />
     <fragment
         android:id="@+id/eventsFragment"
-        android:name="com.example.studentplanner.EventsFragment"
+        android:name="Fragments.EventsFragment"
         android:label="fragment_events"
-        tools:layout="@layout/fragment_events" />
+        tools:layout="@layout/layout_events" />
 </navigation>

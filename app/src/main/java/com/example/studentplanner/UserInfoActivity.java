@@ -179,14 +179,19 @@ saveUserInfo();
                 String token = userPref.getString("token", "");
                 HashMap<String, String> map = new HashMap<>();
                 map.put("Authorization", "Bearer " + token);
+
+
+        /*change content-type to "application/x-www-form-urlencoded" from
+         "application/json"
+         */
+
+                map.put("Content-Type","application/x-www-form-urlencoded");
                 return map;
 
 
-
-
-
-
             }
+
+
 
             //ADD PARAMS
 

@@ -1,20 +1,21 @@
-package com.example.studentplanner;
+package Fragments;
 
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.studentplanner.R;
+
 
 /**
  * A simple {@link Fragment} subclass.
+ *
  */
-public class JournalFragment extends Fragment {
+public class EventsFragment extends Fragment {
 
-    public JournalFragment() {
+    public EventsFragment() {
         // Required empty public constructor
     }
 
@@ -23,6 +24,6 @@ public class JournalFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_journal, container, false);
+        return inflater.inflate(R.layout.layout_events, container, false);
     }
 }

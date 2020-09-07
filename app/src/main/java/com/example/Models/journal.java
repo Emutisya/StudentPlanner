@@ -1,6 +1,11 @@
 package com.example.Models;
 
 public class journal {
+private int id,likes,comments;
+private String date,about,photo,tag,feelings;
+private User user;
+private boolean selfLike;
+
     public int getId() {
         return id;
     }
@@ -9,12 +14,20 @@ public class journal {
         this.id = id;
     }
 
-    public int getComment() {
-        return comment;
+    public int getLikes() {
+        return likes;
     }
 
-    public void setComment(int comment) {
-        this.comment = comment;
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+
+    public int getComments() {
+        return comments;
+    }
+
+    public void setComments(int comments) {
+        this.comments = comments;
     }
 
     public String getDate() {
@@ -41,6 +54,22 @@ public class journal {
         this.photo = photo;
     }
 
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+
+    public String getFeelings() {
+        return feelings;
+    }
+
+    public void setFeelings(String feelings) {
+        this.feelings = feelings;
+    }
+
     public User getUser() {
         return user;
     }
@@ -49,8 +78,11 @@ public class journal {
         this.user = user;
     }
 
-    private int id, comment;
-    private String date,about,photo;
-    private User user;
+    public boolean isSelfLike() {
+        return selfLike;
+    }
 
+    public void setSelfLike(boolean selfLike) {
+        this.selfLike = selfLike;
+    }
 }
