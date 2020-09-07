@@ -1,6 +1,7 @@
 package Fragments;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
@@ -22,7 +23,9 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.studentplanner.AuthActivity;
 import com.example.studentplanner.Constant;
+import com.example.studentplanner.HomeActivity;
 import com.example.studentplanner.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -156,9 +159,13 @@ public class SignInFragment extends Fragment {
                     editor.putString("course",user.getString("course"));
                     editor.putString("YOS",user.getString("YOS"));
                     editor.putString("interests",user.getString("interests"));
+                    editor.putBoolean("isLoggedIn",true);
                     editor.apply();
 
                     //IF SUCCESS
+                    startActivity(new Intent(((AuthActivity)getContext()), HomeActivity.class));
+                    ((AuthActivity) getContext()).finish();
+
                     Toast.makeText(getContext(),"Successfully Logged In!!",Toast.LENGTH_SHORT).show();
 
 
