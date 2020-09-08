@@ -14,7 +14,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="10dp">
 
@@ -33,20 +33,20 @@
                 android:paddingLeft="6dp">
 
                 <TextView
-                    android:id="@+id/txtjournalname"
+                    android:id="@+id/txtJournalname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/jane_doe"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/colorBlack"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/journalpostdate"
+                    android:id="@+id/txtJournalDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/april_1st"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/colorBlack"
                     android:textSize="16sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -56,7 +56,7 @@
                 android:layout_width="77dp"
                 android:layout_height="46dp"
                 android:layout_marginRight="8dp"
-
+                android:background="@color/colorWhite"
                 android:src="@drawable/ic_more_vert_black_24dp"/>
 
         </LinearLayout>
@@ -70,43 +70,87 @@
             android:paddingRight="8dp"
             android:paddingBottom="8dp"
             android:textSize="14sp"
-             />
+            />
+        <TextView
+            android:id="@+id/txtjournalFeeling"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Happy"
+            android:textColor="@color/colorRed"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="8dp"
+            android:textSize="14sp"
+            />
+        <TextView
+            android:id="@+id/txtjournalTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nature"
+            android:textColor="@color/colorRed"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="8dp"
+            android:textSize="14sp"
+            />
 
         <ImageView
-            android:id="@+id/journalPhoto"
+            android:id="@+id/imgJournalPhoto"
             android:layout_width="match_parent"
             android:layout_height="263dp"
             android:adjustViewBounds="true"
             android:src="@color/design_default_color_secondary_variant"/>
 
         <LinearLayout
-            android:layout_width="49dp"
+            android:layout_width="83dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
             android:layout_marginTop="12dp"
             android:layout_marginBottom="12dp"
             android:orientation="horizontal">
 
+            <ImageButton
+                android:id="@+id/btnJournalLike"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="12dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_baseline_favorite_outline" />
 
 
+            <ImageButton
+                android:id="@+id/btnJournalComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
 
-        <ImageButton
-            android:id="@+id/btnjournalComment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="12dp"
-            android:src="@drawable/ic_comment" />
+                android:src="@drawable/ic_comment" />
         </LinearLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/_30_comments"
+            android:text="12 Likes"
+            android:id="@+id/txtJournalLikes"
+            android:textStyle="bold"
+            android:layout_marginLeft="12dp"
+            android:textSize="13dp"
+            android:textColor="@color/colorPrimary"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View all 3 Comments"
             android:id="@+id/txtJournalComments"
             android:textStyle="bold"
             android:layout_marginLeft="12dp"
             android:textSize="13dp"
-            android:textColor="@color/colorPrimaryDark"/>
+            android:textColor="@color/colorPrimary"/>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#ccc"
+            />
 
     </LinearLayout>
 
