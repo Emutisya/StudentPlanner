@@ -218,7 +218,7 @@ queue.add(request);
                 if(bitmap!=null){
                     ByteArrayOutputStream byteArrayOutputStream=new ByteArrayOutputStream();
                     bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
-                    byte[]array=byteArrayOutputStream.toByteArray();
+                    byte [] array=byteArrayOutputStream.toByteArray();
                     return Base64.encodeToString(array, Base64.DEFAULT);
                 }
 

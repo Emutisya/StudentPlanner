@@ -8,4 +8,5 @@ public class Constant {
     public static final String REGISTER =HOME+"/register";
     public static final String SAVE_USER_INFO =HOME+"/save_user_info";
     public static final String JOURNAL = HOME+"/journal";
+    public static final String ADD_JOURNAL = JOURNAL+"/entry";
 }

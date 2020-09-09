@@ -48,8 +48,8 @@ import static android.content.ContentValues.TAG;
 public class JournalFragment extends Fragment {
 
     private View view;
-    private RecyclerView recyclerView;
-    private ArrayList<journal> arrayList;
+    public static RecyclerView recyclerView;
+    public static ArrayList<journal> arrayList;
     private SwipeRefreshLayout refreshLayout;
     private JournalAdapter journalAdapter;
     private MaterialToolbar toolbar;
