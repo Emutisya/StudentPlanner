@@ -171,7 +171,7 @@
 
         <TextView
             android:id="@+id/txtJournalLikes"
-            android:layout_width="187dp"
+            android:layout_width="440dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="12dp"
@@ -184,8 +184,8 @@
 
         <TextView
             android:id="@+id/txtJournalComments"
-            android:layout_width="187dp"
-            android:layout_height="wrap_content"
+            android:layout_width="453dp"
+            android:layout_height="38dp"
             android:layout_gravity="center"
             android:layout_marginLeft="12dp"
             android:background="@drawable/style_rectangle_pink"
