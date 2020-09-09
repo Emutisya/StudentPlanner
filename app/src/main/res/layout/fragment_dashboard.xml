@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DashboardFragment">
+    tools:context=".DashboardFragment"
+    android:background="@drawable/background3">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -55,16 +56,22 @@
         android:id="@+id/tv_debug"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tasks"
-        android:textSize="15sp"
+        android:layout_below="@+id/dashboard_top"
+        android:background="@drawable/style_rectangle_pink"
         android:paddingLeft="20dp"
-        android:layout_below="@+id/dashboard_top"/>
+        android:text="TASKS"
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"
+        android:textSize="15sp"
+        android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_below="@+id/tv_debug"
         android:layout_width="match_parent"
+        android:outlineAmbientShadowColor="@color/colorBlack"
         android:layout_height="wrap_content"
+        android:background="@drawable/style_color"
         android:scrollbars="vertical"/>
 
 </RelativeLayout>

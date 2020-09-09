@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -34,6 +35,7 @@ import java.util.Map;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class UserInfoActivity extends AppCompatActivity {
+    private static final String TAG = "info";
     private TextInputLayout layoutName, layoutCourse,layoutCampus, layoutYOS,layoutInterests;
     private TextInputEditText txtName, txtCourse,txtCampus, txtYOS,txtInterests;
     private TextView txtSelectPhoto;
@@ -155,6 +157,7 @@ saveUserInfo();
         StringRequest request = new StringRequest(Request.Method.POST, Constant.SAVE_USER_INFO, response -> {
 
             try {
+                Log.e(TAG, "saveUserInfo: "+response );
                 JSONObject object = new JSONObject(response);
                 if (object.getBoolean("success")) {
                     SharedPreferences.Editor editor = userPref.edit();
@@ -165,12 +168,14 @@ saveUserInfo();
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
+                Log.e(TAG, "saveUserInfo2: "+response );
             }
 
 
         }, error -> {
             error.printStackTrace();
             dialog.dismiss();
+            Log.e(TAG, "saveUserInfo: "+error );
         }) {
 
             //ADD TOKEN TO HEADERS
@@ -213,7 +218,7 @@ queue.add(request);
                 if(bitmap!=null){
                     ByteArrayOutputStream byteArrayOutputStream=new ByteArrayOutputStream();
                     bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
-                    byte[]array=byteArrayOutputStream.toByteArray();
+                    byte [] array=byteArrayOutputStream.toByteArray();
                     return Base64.encodeToString(array, Base64.DEFAULT);
                 }
 

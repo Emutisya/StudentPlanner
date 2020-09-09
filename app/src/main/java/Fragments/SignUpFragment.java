@@ -43,7 +43,7 @@ public class SignUpFragment extends Fragment {
     private TextInputEditText txtEmail, txtPassword, txtConfirm ;
     private TextInputLayout layoutEmail, layoutPassword, layoutConfirm;
     private TextView txtSignIn;
-    Button btnSignUp;
+    private Button btnSignUp;
     private ProgressDialog dialog;
 
     public SignUpFragment(){}
