@@ -14,7 +14,11 @@
         android:id="@+id/timetableFragment"
         android:name="com.example.studentplanner.TimetableFragment"
         android:label="fragment_timetable"
-        tools:layout="@layout/fragment_timetable" />
+        tools:layout="@layout/fragment_timetable" >
+        <action
+            android:id="@+id/action_timetableFragment_to_dayTasksActivity"
+            app:destination="@id/dayTasksActivity" />
+    </fragment>
     <fragment
         android:id="@+id/journalFragment"
         android:name="com.example.studentplanner.JournalFragment"
@@ -25,4 +29,8 @@
         android:name="com.example.studentplanner.EventsFragment"
         android:label="fragment_events"
         tools:layout="@layout/fragment_events" />
+    <activity
+        android:id="@+id/dayTasksActivity"
+        android:name="com.example.studentplanner.DayTasksActivity"
+        android:label="DayTasksActivity" />
 </navigation>

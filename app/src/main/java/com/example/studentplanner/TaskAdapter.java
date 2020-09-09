@@ -2,9 +2,12 @@ package com.example.studentplanner;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -42,6 +45,35 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
         holder.taskDuration.setText(currentTask.getTaskDuration());
         holder.taskName.setText(currentTask.getTaskName());
         holder.taskLocation.setText(currentTask.getTaskLocation());
+
+        holder.optionsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(mContext, "TextView clicked", Toast.LENGTH_SHORT).show();
+                PopupMenu popupMenu = new PopupMenu(mContext, holder.optionsButton);
+                popupMenu.inflate(R.menu.task_options_menu);
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch(item.getItemId()){
+                            case R.id.edit_btn:
+                                Toast.makeText(mContext, "Edit button pressed "+currentTask.getTaskName(), Toast.LENGTH_SHORT).show();
+                                break;
+
+                            case R.id.delete_btn:
+                                Toast.makeText(mContext, "Delete button pressed "+currentTask.getTaskName(), Toast.LENGTH_SHORT).show();
+                                break;
+                                
+                        }
+                        return false;
+                    }
+                });
+
+                popupMenu.show();
+            }
+        });
     }
 
     @Override
@@ -54,6 +86,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
         public TextView taskDuration;
         public TextView taskLocation;
         public TextView taskNotes;
+        public TextView optionsButton;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -62,6 +95,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
             taskDuration = (TextView) itemView.findViewById(R.id.task_duration);
             taskLocation = (TextView) itemView.findViewById(R.id.task_location);
             taskNotes = (TextView) itemView.findViewById(R.id.task_notes);
+            optionsButton = (TextView) itemView.findViewById(R.id.textViewOptions);
         }
     }
 }

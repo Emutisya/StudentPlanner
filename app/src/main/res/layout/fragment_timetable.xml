@@ -3,15 +3,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".TimetableFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/timetable_view"
-        android:textSize="30sp"
-        android:layout_marginTop="200dp"
-        android:layout_marginStart="100dp"/>
+        android:layout_height="match_parent" >
+        <!-- TODO: Update blank fragment layout -->
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/timetable_view"
+            android:textSize="30sp"
+            android:textColor="@color/design_default_color_primary_dark"
+            android:textStyle="italic"
+            android:textAppearance="@style/Theme.AppCompat"
+            android:layout_marginStart="10dp"/>
+
+        <Button
+            android:id="@+id/add_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_title"
+            android:text="@string/new_task" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/timetable_recyclerview"
+            android:layout_below="@id/add_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
 
 </FrameLayout>

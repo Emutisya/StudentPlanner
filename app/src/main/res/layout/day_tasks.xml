@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_showDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Date in text form"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_dayTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Day - Monday"
+            android:textSize="20sp"
+            android:layout_below="@id/tv_showDate"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/day_tasks_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_dayTitle"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/colorAccent"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_menu"/>
+
+</RelativeLayout>

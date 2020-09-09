@@ -50,6 +50,15 @@
             android:textSize="20sp"
             android:textColor="@android:color/darker_gray" />
 
+        <TextView
+            android:id="@+id/textViewOptions"
+            android:layout_width="15dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="150dp"
+            android:layout_toRightOf="@id/task_name"
+            android:text="&#8942;"
+            android:textAppearance="?android:textAppearanceLarge" />
+
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>
