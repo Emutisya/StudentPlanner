@@ -75,9 +75,9 @@ public class SignInFragment extends Fragment {
         });
         btnSignIn.setOnClickListener(v -> {
             //validate fields first
-            if (validate()) {
+//            if (validate()) {
                 login();
-            }
+//            }
 
         });
 
@@ -140,8 +140,10 @@ public class SignInFragment extends Fragment {
     }
     private void login (){
 
-        dialog.setMessage("Logging In...");
-        dialog.show();
+        startActivity(new Intent(((AuthActivity)getContext()), HomeActivity.class));
+
+//        dialog.setMessage("Logging In...");
+//        dialog.show();
 
         StringRequest request = new StringRequest(Request.Method.POST, Constant.LOGIN, response->{
 //WE GET A RESPONSE IF CONNECTION IS SUCCESSFUL

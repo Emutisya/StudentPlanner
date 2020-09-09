@@ -11,12 +11,17 @@ import androidx.navigation.ui.NavigationUI;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.Models.ExampleDialog;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements ExampleDialog.ExampleDialogListener {
     private Fragment fragment;
     private FragmentManager fragmentManager;
+
+    private TextView startTime, endTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,5 +61,11 @@ public class HomeActivity extends AppCompatActivity {
 //
 //            }
 //        });
+    }
+
+    @Override
+    public void applyTexts(String name, String startTime, String endTime, String startDate, String endDate, String priority) {
+//        From here we send to the network and grab it later
+        Toast.makeText(this, name+" "+startTime+" "+endTime+" "+startDate+" "+endDate+" "+priority+" ", Toast.LENGTH_SHORT).show();
     }
 }

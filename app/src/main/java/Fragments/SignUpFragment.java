@@ -201,10 +201,6 @@ public class SignUpFragment extends Fragment {
 
 
                     Toast.makeText(getContext(),"Successfully Registered!!",Toast.LENGTH_SHORT).show();
-
-
-
-
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

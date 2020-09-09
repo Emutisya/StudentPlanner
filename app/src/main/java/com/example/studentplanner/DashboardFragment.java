@@ -22,15 +22,20 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class DashboardFragment extends Fragment {
-    private TextView textView, tvDebug;
+    private TextView textView, tvDebug, tvDate, tvDay;
     private final String url_get_timetable = "";
     private RecyclerView recyclerView;
 
@@ -49,6 +54,44 @@ public class DashboardFragment extends Fragment {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_dashboard, container, false);
 
         tvDebug = (TextView) root.findViewById(R.id.tv_debug);
+        tvDate = (TextView) root.findViewById(R.id.tv_date);
+        tvDay = (TextView) root.findViewById(R.id.tv_day);
+
+//        Display dates
+        Date date = Calendar.getInstance(TimeZone.getDefault()).getTime();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String strDate = dateFormat.format(date);
+        tvDate.setText(strDate);
+
+        Calendar calendar = Calendar.getInstance();
+        int day = calendar.get(Calendar.DAY_OF_WEEK);
+        String dayName = "Monday - default";
+
+        switch (day) {
+            case Calendar.SUNDAY:
+                dayName = "Sunday";
+                break;
+            case Calendar.MONDAY:
+                dayName = "Monday";
+                break;
+            case Calendar.TUESDAY:
+                dayName = "Tuesday";
+                break;
+            case Calendar.WEDNESDAY:
+                dayName = "Wednesday";
+                break;
+            case Calendar.THURSDAY:
+                dayName = "Thursday";
+                break;
+            case Calendar.FRIDAY:
+                dayName = "Friday";
+                break;
+            case Calendar.SATURDAY:
+                dayName = "Saturday";
+                break;
+        }
+
+        tvDay.setText(dayName);
 
         recyclerView = (RecyclerView) root.findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
