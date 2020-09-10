@@ -5,33 +5,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AddJournalActivity">
-<com.google.android.material.appbar.MaterialToolbar
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:title=" "
-    android:elevation="1dp">
-
-    <ImageButton
-        android:layout_width="wrap_content"
+    tools:context=".EditJournalActivity">
+    <com.google.android.material.appbar.MaterialToolbar
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_arrow_back_ios_24"
-        android:background="@android:color/transparent"
-        android:layout_marginRight="12dp"
-        android:tint="@color/colorBlack"
-        android:onClick="cancelJournal"/>
+        app:title=" "
+        android:elevation="1dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:text="New Journal Entry"
-        android:textColor="#673AB7"
-        android:textSize="18sp"
-        android:fontFamily="@font/font"/>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24"
+            android:background="@android:color/transparent"
+            android:layout_marginRight="12dp"
+            android:tint="@color/colorBlack"
+            android:onClick="cancelEdit"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Edit Journal Entry"
+            android:textColor="#673AB7"
+            android:textSize="18sp"
+            android:fontFamily="@font/font"/>
 
 
-</com.google.android.material.appbar.MaterialToolbar>
+    </com.google.android.material.appbar.MaterialToolbar>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -44,21 +44,7 @@
             android:padding="16dp"
             android:layout_marginTop="6dp"
             >
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:id="@+id/imgAddJournal"
-                android:layout_marginBottom="16dp"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Select Photo"
-                android:layout_marginBottom="20dp"
-                android:textColor="#FF5722"
-                android:gravity="center_horizontal"
-                android:onClick="changePhoto"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -75,7 +61,7 @@
                 android:textSize="15dp"
                 android:background="@drawable/txt_background"
                 android:padding="8dp"
-                android:id="@+id/txtAboutAddJournal"/>
+                android:id="@+id/txtAboutEditJournal"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -92,11 +78,11 @@
                 android:textSize="15dp"
                 android:background="@drawable/txt_background"
                 android:padding="8dp"
-                android:id="@+id/txtFeelingsAddJournal"/>
+                android:id="@+id/txtFeelingsEditJournal"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                    android:text="Give a tag for better socialization"
+                android:text="Give a tag for better socialization"
                 android:layout_marginBottom="20dp"
                 android:textColor="#673AB7"
                 android:gravity="center_horizontal"
@@ -110,7 +96,7 @@
                 android:background="@drawable/txt_background"
                 android:padding="8dp"
 
-                android:id="@+id/txtTagAddJournal"/>
+                android:id="@+id/txtTagEditJournal"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -128,21 +114,21 @@
                 android:background="@drawable/txt_background"
                 android:padding="8dp"
 
-                android:id="@+id/txtDateAddJournal"/>
+                android:id="@+id/txtDateEditJournal"/>
 
 
             <Button
-                android:id="@+id/btnAddJournal"
+                android:id="@+id/btnEditJournal"
                 android:layout_width="match_parent"
                 android:layout_height="42dp"
                 android:layout_centerHorizontal="true"
-android:layout_marginTop="12dp"
+                android:layout_marginTop="12dp"
                 android:background="@drawable/button_rectangle_pink"
-                android:text="ADD JOURNAL ENTRY"
+                android:text="EDIT JOURNAL ENTRY"
                 android:textSize="20sp" />
 
 
-</LinearLayout>
+        </LinearLayout>
 
     </ScrollView>
 

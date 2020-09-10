@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,9 +37,10 @@ import java.util.Map;
 
 public class AddJournalActivity extends AppCompatActivity {
 
+    private static final String TAG = "Ajournal";
     private Button btnJournal;
     private ImageView imgJournal;
-    private EditText txtAbout, txtFeelings, txtTag;
+    private EditText txtAbout, txtFeelings, txtTag,TxtDate;
     private Bitmap bitmap = null;
     private static final int GALLERY_CHANGE_POST = 3;
     private ProgressDialog dialog;
@@ -49,6 +51,43 @@ public class AddJournalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_journal);
         init();
+        btnJournal.setOnClickListener(v -> {
+            Log.e(TAG, "AcancelJournl: " );
+            if (txtAbout.getText().toString().isEmpty()) {
+
+
+                Toast.makeText(this, "Please tell Us more about your day", Toast.LENGTH_SHORT).show();
+            }
+            else if (txtFeelings.getText().toString().isEmpty()) {
+
+
+                Toast.makeText(this, "Tell us how you felt..", Toast.LENGTH_SHORT).show();
+            }
+            else if (TxtDate.getText().toString().isEmpty()) {
+
+
+                Toast.makeText(this, "When did this happen....", Toast.LENGTH_SHORT).show();
+            }
+           else if (txtTag.getText().toString().isEmpty()) {
+
+
+                Toast.makeText(this, "write a tag for more engagement", Toast.LENGTH_SHORT).show();
+            }
+           else {
+
+               String about, tag,date,feelings,photo;
+               photo="picture";
+               about=txtAbout.getText().toString().trim();
+                tag=txtTag.getText().toString().trim();
+                date=TxtDate.getText().toString().trim();
+                feelings=txtFeelings.getText().toString().trim();
+               // photo.getText().toString().trim();
+
+               journal(about,tag,date,feelings,photo);
+
+
+            }
+        });
     }
 
     private void init() {
@@ -60,6 +99,7 @@ public class AddJournalActivity extends AppCompatActivity {
         txtAbout = findViewById(R.id.txtAboutAddJournal);
         txtFeelings = findViewById(R.id.txtFeelingsAddJournal);
         txtTag = findViewById(R.id.txtTagAddJournal);
+        TxtDate = findViewById(R.id.txtDateAddJournal);
         dialog = new ProgressDialog(this);
         dialog.setCancelable(false);
 
@@ -77,26 +117,11 @@ public class AddJournalActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        btnJournal.setOnClickListener(v -> {
-            if (!txtAbout.getText().toString().isEmpty()) {
-                journal();
-            } else {
-                Toast.makeText(this, "Please tell Us more about your day", Toast.LENGTH_SHORT).show();
-            }
-            if (!txtFeelings.getText().toString().isEmpty()) {
-                journal();
-            } else {
-                Toast.makeText(this, "Tell us how you felt..", Toast.LENGTH_SHORT).show();
-            }
-            if (!txtTag.getText().toString().isEmpty()) {
-                journal();
-            } else {
-                Toast.makeText(this, "write a tag for more engagement", Toast.LENGTH_SHORT).show();
-            }
-        });
+
     }
 
-    private void journal() {
+    private void journal(String about,String tag,String date,String feelings,String photo) {
+//add params
 
         dialog.setMessage("Creating Journal Entry...");
         dialog.show();
@@ -105,7 +130,10 @@ public class AddJournalActivity extends AppCompatActivity {
         StringRequest request = new StringRequest(Request.Method.POST, Constant.ADD_JOURNAL,response-> {
 
             try {
+                Log.e(TAG, "journal error: "+response );
                 JSONObject object =new JSONObject(response);
+
+
                 if(object.getBoolean("success")){
                     JSONObject journalObject=object.getJSONObject("journal");
                     JSONObject userObject=journalObject.getJSONObject("user");
@@ -121,10 +149,11 @@ public class AddJournalActivity extends AppCompatActivity {
                     journal.setUser(user);
                     journal.setId(journalObject.getInt("id"));
                     journal.setSelfLike(false);
-                    journal.setPhoto(journalObject.getString("photo"));
+                    //journal.setPhoto(journalObject.getString("photo"));
                     journal.setAbout(journalObject.getString("about"));
                     journal.setFeelings(journalObject.getString("feelings"));
                     journal.setTag(journalObject.getString("tag"));
+                    journal.setDate(journalObject.getString("date"));
                     journal.setComments(0);
                     journal.setLikes(0);
                     journal.setDate(journalObject.getString("created_at"));
@@ -135,9 +164,14 @@ public class AddJournalActivity extends AppCompatActivity {
                     JournalFragment.recyclerView.getAdapter().notifyDataSetChanged();
                     Toast.makeText(this,"Journal Entry Added",Toast.LENGTH_SHORT).show();
                     finish();
+
+
                 }
+
+
             } catch (JSONException e) {
                 e.printStackTrace();
+                Log.e(TAG, "journal error catch: "+e );
             }
             dialog.dismiss();
         }, error -> {
@@ -161,10 +195,13 @@ dialog.dismiss();
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 HashMap<String,String>map = new HashMap<>();
-                map.put("about",txtAbout.getText().toString().trim());
-                map.put("feelings",txtFeelings.getText().toString().trim());
-                map.put("tag",txtTag.getText().toString().trim());
-                map.put("photo",bitmapToString(bitmap));
+                map.put("about",about);
+                map.put("feelings",feelings);
+                map.put("tag",tag);
+                map.put("date",date);
+                map.put("photo",photo);
+
+               // map.put("photo",bitmapToString(bitmap));
                 return map;
 
             }

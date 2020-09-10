@@ -13,7 +13,7 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="372dp"
+            android:layout_width="317dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="10dp">
@@ -53,8 +53,8 @@
 
             <ImageButton
                 android:id="@+id/btnJournalOption"
-                android:layout_width="77dp"
-                android:layout_height="46dp"
+                android:layout_width="69dp"
+                android:layout_height="44dp"
                 android:layout_marginRight="8dp"
                 android:background="@color/colorWhite"
                 android:src="@drawable/ic_more_vert_black_24dp" />

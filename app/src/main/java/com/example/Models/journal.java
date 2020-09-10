@@ -85,4 +85,14 @@ public class journal {
     public void setSelfLike(boolean selfLike) {
         this.selfLike = selfLike;
     }
+/*
+    public journal(String date, String about, String photo, String tag, String feelings) {
+        this.date = date;
+        this.about = about;
+        this.photo = photo;
+        this.tag = tag;
+        this.feelings = feelings;
+    }
+    */
+
 }
