@@ -157,6 +157,8 @@ saveUserInfo();
         StringRequest request = new StringRequest(Request.Method.POST, Constant.SAVE_USER_INFO, response -> {
 
             try {
+                Log.e(TAG, "saveUser: "+response );
+
                 Log.e(TAG, "saveUserInfo: "+response );
                 JSONObject object = new JSONObject(response);
                 if (object.getBoolean("success")) {
@@ -166,9 +168,11 @@ saveUserInfo();
                     startActivity(new Intent(UserInfoActivity.this, HomeActivity.class));
                     finish();
                 }
-            } catch (JSONException e) {
+
+
+            } catch (Exception e) {
                 e.printStackTrace();
-                Log.e(TAG, "saveUserInfo2: "+response );
+                Log.e(TAG, "saveUserInfo2: "+e );
             }
 
 
@@ -202,9 +206,10 @@ saveUserInfo();
                 map.put("name", name);
                 map.put("course", course);
                 map.put("campus", campus);
-                map.put("yos", yos);
+                map.put("YOS", yos);
                 map.put("interests", interests);
-                map.put("photo", bitmapToString(bitmap));
+                map.put("photo", "photo");
+                //map.put("photo", bitmapToString(bitmap));
                 return map;
             }
 

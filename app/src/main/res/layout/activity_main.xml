@@ -11,11 +11,11 @@
     <ImageView
         android:id="@+id/iv_user"
 
-        android:layout_width="290dp"
-        android:layout_height="219dp"
+        android:layout_width="225dp"
+        android:layout_height="193dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="106dp"
         android:src="@drawable/logoo" />
 
     <TextView
