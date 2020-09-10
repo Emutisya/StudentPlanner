@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".EditJournalActivity"></activity>
+        <activity android:name=".CommentActivity"></activity>
+        <activity android:name=".EditJournalActivity" />
         <activity android:name=".AddJournalActivity" />
         <activity android:name=".UserInfoActivity" />
         <activity android:name=".AuthActivity" />

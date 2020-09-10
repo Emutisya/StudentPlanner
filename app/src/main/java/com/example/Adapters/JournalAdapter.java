@@ -23,9 +23,11 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.Models.journal;
+import com.example.studentplanner.CommentActivity;
 import com.example.studentplanner.Constant;
 import com.example.studentplanner.EditJournalActivity;
 import com.example.studentplanner.HomeActivity;
+import com.example.studentplanner.JournalFragment;
 import com.example.studentplanner.R;
 import com.squareup.picasso.Picasso;
 
@@ -174,6 +176,18 @@ public class JournalAdapter extends RecyclerView.Adapter<JournalAdapter.JournalH
             });
 
             popupMenu.show();
+        });
+
+        holder.txtComments.setOnClickListener(v->{
+            Intent i = new Intent(((HomeActivity)context),CommentActivity.class);
+            i.putExtra("journalId",journal.getId());
+            context.startActivity(i);
+        });
+        holder.btnComment.setOnClickListener(v->{
+
+            Intent i = new Intent(((HomeActivity)context), CommentActivity.class);
+            i.putExtra("journalId",journal.getId());
+            context.startActivity(i);
         });
     }
     private void deleteJournal(int journalId,int position){
