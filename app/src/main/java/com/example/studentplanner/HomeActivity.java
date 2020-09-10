@@ -36,12 +36,10 @@ public class HomeActivity extends AppCompatActivity implements ExampleDialog.Exa
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
         View navHost = findViewById(R.id.fragment);
-        NavHostFragment navHostFragment  = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.fragment);
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.fragment);
         fragmentManager = getSupportFragmentManager();
         NavigationUI.setupWithNavController(bottomNavigationView, navHostFragment.getNavController());
         init();
-
-
 
 
 //        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

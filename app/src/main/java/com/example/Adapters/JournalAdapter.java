@@ -72,6 +72,67 @@ public class JournalAdapter extends RecyclerView.Adapter<JournalAdapter.JournalH
         holder.txtTag.setText(journal.getTag());
         holder.txtFeelings.setText(journal.getFeelings());
 
+        holder.btnLike.setImageResource(
+                journal.isSelfLike()?R.drawable.ic_baseline_favorite_24:R.drawable.ic_baseline_favorite_outline
+        );
+
+        holder.btnLike.setOnClickListener(v->{
+            holder.btnLike.setImageResource(
+            journal.isSelfLike()?R.drawable.ic_baseline_favorite_outline:R.drawable.ic_baseline_favorite_24
+             );
+
+            StringRequest request =new StringRequest(Request.Method.POST,Constant.LIKE_JOURNAL,response -> {
+
+                journal mJournal =list.get(position);
+                try {
+                    JSONObject object =new JSONObject(response);
+                    if (object.getBoolean("success")){
+                        mJournal.setSelfLike(!journal.isSelfLike());
+                        mJournal.setLikes(mJournal.isSelfLike()?journal.getLikes()+1:journal.getLikes()-1);
+                        list.set(position, mJournal);
+                        notifyItemChanged(position);
+                        notifyDataSetChanged();
+                    }
+                    else{
+
+                        holder.btnLike.setImageResource(
+                                journal.isSelfLike()?R.drawable.ic_baseline_favorite_24:R.drawable.ic_baseline_favorite_outline
+                        );
+
+
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            },err->{
+
+                err.printStackTrace();
+
+            }){
+                //ADD TOKEN
+
+                @Override
+                public Map<String, String> getHeaders() throws AuthFailureError {
+                    String token= preferences.getString("token","");
+                    HashMap<String,String>map = new HashMap<>();
+                    map.put("Authorization","Bearer"+token);
+                    return map;
+                }
+
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    HashMap<String,String>map = new HashMap<>();
+                    map.put("id",journal.getId()+"");
+                    return map;
+                }
+            };
+
+            RequestQueue queue = Volley.newRequestQueue(context);
+            queue.add(request);
+
+        });
+
         if(journal.getUser().getId()==preferences.getInt("id",0)){
 
             holder.btnJournalOption.setVisibility(View.VISIBLE);

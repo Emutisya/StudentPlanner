@@ -73,11 +73,12 @@ public class SignInFragment extends Fragment {
             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameAuthContainer, new SignUpFragment()).commit();
 
         });
+
         btnSignIn.setOnClickListener(v -> {
             //validate fields first
-//            if (validate()) {
+            if (validate()) {
                 login();
-//            }
+            }
 
         });
 
@@ -140,10 +141,8 @@ public class SignInFragment extends Fragment {
     }
     private void login (){
 
-        startActivity(new Intent(((AuthActivity)getContext()), HomeActivity.class));
-
-//        dialog.setMessage("Logging In...");
-//        dialog.show();
+        dialog.setMessage("Logging In...");
+        dialog.show();
 
         StringRequest request = new StringRequest(Request.Method.POST, Constant.LOGIN, response->{
 //WE GET A RESPONSE IF CONNECTION IS SUCCESSFUL
@@ -171,14 +170,11 @@ public class SignInFragment extends Fragment {
 
                     Toast.makeText(getContext(),"Successfully Logged In!!",Toast.LENGTH_SHORT).show();
 
-
-
-
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-dialog.dismiss();
+            dialog.dismiss();
         },error->{
             //WE GET AN ERROR IF CONNECTION IS NOT SUCCESSFUL
             error.printStackTrace();
