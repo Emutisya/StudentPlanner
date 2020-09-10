@@ -2,7 +2,7 @@ package com.example.studentplanner;
 //class to store URLs
 public class Constant {
 
-    public static final String URL ="http://fc48ad9db633.ngrok.io/";
+    public static final String URL ="http://29ec6a6efa5d.ngrok.io/";
     public static final String HOME =URL+"api";
     public static final String LOGIN =HOME+"/login";
     public static final String REGISTER =HOME+"/register";

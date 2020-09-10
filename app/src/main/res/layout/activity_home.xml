@@ -22,13 +22,13 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
-        android:layout_width="309dp"
+        android:layout_width="131dp"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:layout_margin="60dp"
-        android:backgroundTint="@color/colorPrimary"
-        android:src="@drawable/ic_baseline_add_24"/>
+        android:layout_margin="58dp"
 
+        android:backgroundTint="#604D1757"
+        android:src="@drawable/ic_baseline_add_24" />
 
 
     <fragment

@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background2"
     tools:context=".TimetableFragment">
 
     <RelativeLayout
@@ -15,22 +16,24 @@
             android:id="@+id/tv_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/timetable_view"
-            android:textSize="30sp"
+            android:text="TimeTable View"
+            android:fontFamily="@font/greatvibes_regular"
+            android:textSize="40sp"
             android:gravity="center"
-            android:textColor="@color/design_default_color_primary_dark"
+            android:textColor="#E6E91E63"
             android:textStyle="bold"
             android:textAppearance="@style/Theme.AppCompat"
             android:layout_marginStart="10dp"/>
 
         <Button
             android:id="@+id/add_btn"
-            android:layout_width="match_parent"
+            android:layout_width="391dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_title"
+
             android:layout_marginTop="1dp"
+            android:background="@drawable/button_rectangle_pink"
             android:gravity="center"
-            android:background="@color/colorLightGrey"
             android:text="@string/new_task"
             android:textColor="@color/design_default_color_primary_dark"
             android:textSize="20sp"

@@ -10,45 +10,48 @@
 
     <RelativeLayout
         android:id="@+id/dashboard_top"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp">
+        android:layout_width="365dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp">
 
         <TextView
             android:id="@+id/tv_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="20sp"
-            android:text="Good Morning Janette"
+            android:layout_width="323dp"
+            android:layout_height="71dp"
             android:layout_toRightOf="@+id/image"
-            android:paddingLeft="20dp"/>
+            android:fontFamily="@font/greatvibes_regular"
+            android:paddingLeft="20dp"
+            android:text="Student Planner"
+            android:textColor="#2C0B32"
+            android:textSize="50sp" />
 
         <ImageView
             android:id="@+id/image"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/girl2"/>
+            android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/tv_day"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Wednesday"
-            android:textSize="20sp"
+            android:layout_below="@+id/tv_name"
             android:layout_toRightOf="@+id/image"
             android:paddingLeft="20dp"
-            android:layout_below="@+id/tv_name"/>
+            android:text=""
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/tv_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="10th June 2020"
-            android:textSize="20sp"
+            android:layout_below="@+id/tv_day"
             android:layout_toRightOf="@+id/image"
             android:paddingLeft="20dp"
-            android:layout_below="@+id/tv_day"/>
+            android:text=""
+            android:textSize="20sp" />
 
     </RelativeLayout>
 
@@ -59,7 +62,7 @@
         android:layout_below="@+id/dashboard_top"
         android:background="@drawable/style_rectangle_pink"
         android:paddingLeft="20dp"
-        android:text="TASKS"
+        android:text="DUE:TASKS"
         android:textAlignment="center"
         android:textColor="@color/colorWhite"
         android:textSize="15sp"
