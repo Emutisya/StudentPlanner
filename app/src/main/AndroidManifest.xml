@@ -12,13 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".AddJournalActivity"></activity>
+        <activity android:name=".EditJournalActivity"></activity>
+        <activity android:name=".AddJournalActivity" />
         <activity android:name=".UserInfoActivity" />
         <activity android:name=".AuthActivity" />
         <activity android:name=".OnboardActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".auth" />
-        <activity android:name=".DayTasksActivity"/>
+        <activity android:name=".DayTasksActivity" />
         <activity android:name=".Dashboard1Activity" />
         <activity android:name=".MainActivity">
             <intent-filter>

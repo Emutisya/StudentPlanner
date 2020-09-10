@@ -1,11 +1,15 @@
 package com.example.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,6 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.Models.journal;
 import com.example.studentplanner.Constant;
+import com.example.studentplanner.EditJournalActivity;
+import com.example.studentplanner.HomeActivity;
 import com.example.studentplanner.R;
 import com.squareup.picasso.Picasso;
 
@@ -24,10 +30,12 @@ public class JournalAdapter extends RecyclerView.Adapter<JournalAdapter.JournalH
 
     private Context context;
     private ArrayList<journal> list;
+    private SharedPreferences preferences;
 
     public JournalAdapter(Context context, ArrayList<journal> list) {
         this.context = context;
         this.list = list;
+        preferences= context.getApplicationContext().getSharedPreferences("user",Context.MODE_PRIVATE);
     }
 
     @NonNull
@@ -49,6 +57,46 @@ public class JournalAdapter extends RecyclerView.Adapter<JournalAdapter.JournalH
         holder.txtDesc.setText(journal.getAbout());
         holder.txtTag.setText(journal.getTag());
         holder.txtFeelings.setText(journal.getFeelings());
+
+        if(journal.getUser().getId()==preferences.getInt("id",0)){
+
+            holder.btnJournalOption.setVisibility(View.VISIBLE);
+        }else{
+            holder.btnJournalOption.setVisibility(View.GONE);
+        }
+        holder.btnJournalOption.setOnClickListener(v->{
+            PopupMenu popupMenu =new PopupMenu(context,holder.btnJournalOption);
+            popupMenu.inflate(R.menu.menu_journal_options);
+            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem item) {
+
+                    switch (item.getItemId()){
+                        case R.id.item_edit:{
+                            Intent i =new Intent(((HomeActivity)context), EditJournalActivity.class);
+                            i.putExtra("journalId",journal.getId());
+                            i.putExtra("position",position);
+                            i.putExtra("text",journal.getAbout());
+                           // i.putExtra("Ftext",journal.getFeelings());
+                          //  i.putExtra("text",journal.getTag());
+                          //  i.putExtra("text",journal.getDate());
+                            context.startActivity(i);
+                            return true;
+
+
+                        }
+                        case R.id.item_delete:{
+
+                        }
+                    }
+
+
+                    return false;
+                }
+            });
+
+            popupMenu.show();
+        });
     }
 
     @Override
@@ -77,6 +125,7 @@ public class JournalAdapter extends RecyclerView.Adapter<JournalAdapter.JournalH
             btnJournalOption=itemView.findViewById(R.id.btnJournalOption);
             btnLike=itemView.findViewById(R.id.btnJournalLike);
             btnComment=itemView.findViewById(R.id.btnJournalComment);
+            btnJournalOption.setVisibility(View.GONE);
 
 
 
