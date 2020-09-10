@@ -16,10 +16,11 @@
         android:id="@+id/journalFragment"
         android:title="Journal"
         android:icon="@drawable/ic_book_white"/>
-
+<!--
     <item
         android:id="@+id/eventsFragment"
         android:title="Events"
         android:icon="@drawable/ic_event_seat"
         />
+        -->
 </menu>
