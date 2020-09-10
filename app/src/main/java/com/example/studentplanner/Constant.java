@@ -10,5 +10,6 @@ public class Constant {
     public static final String JOURNAL = HOME+"/journal";
     public static final String ADD_JOURNAL = JOURNAL+"/entry";
     public static final String UPDATE_JOURNAL = JOURNAL+"/update";
+    public static final String DELETE_JOURNAL = JOURNAL+"/delete";
 
 }
