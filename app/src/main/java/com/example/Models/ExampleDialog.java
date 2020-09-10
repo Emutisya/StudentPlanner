@@ -7,7 +7,10 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,9 +18,17 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 
 import com.example.studentplanner.R;
 
-public class ExampleDialog extends AppCompatDialogFragment {
-    private EditText startTime, endTime, name, startDate, endDate, priority;
+public class ExampleDialog extends AppCompatDialogFragment implements View.OnClickListener, AdapterView.OnItemSelectedListener {
+    private EditText startTime, endTime, name, startDate, endDate;
+    private Spinner prioritySpinner;
     private ExampleDialogListener listener;
+
+    private int mDay;
+    private int mMonth;
+    private int mYear;
+
+    private String mSpinnerLabel;
+
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -31,7 +42,11 @@ public class ExampleDialog extends AppCompatDialogFragment {
         endTime = view.findViewById(R.id.et_endtime);
         startDate = view.findViewById(R.id.et_startdate);
         endDate = view.findViewById(R.id.et_enddate);
-        priority = view.findViewById(R.id.et_priority);
+        prioritySpinner = view.findViewById(R.id.et_priority);
+
+        if (prioritySpinner != null){
+//            prioritySpinner.setOnItemSelectedListener(new On);
+        }
 
         builder.setView(view)
                 .setTitle("Set Time")
@@ -49,7 +64,8 @@ public class ExampleDialog extends AppCompatDialogFragment {
                         String mname = name.getText().toString();
                         String mendDate = endDate.getText().toString();
                         String mstartDate = startDate.getText().toString();
-                        String mpriority = priority.getText().toString();
+//                        String mpriority = priority.getText().toString();
+                        String mpriority = "proiority loading";
 
                         listener.applyTexts(mname,mstartTime, mendTime,mstartDate,mendDate,mpriority);
                     }
@@ -68,6 +84,21 @@ public class ExampleDialog extends AppCompatDialogFragment {
         catch(ClassCastException e){
             throw new ClassCastException(context.toString() + " Must implement example dialog listener");
         }
+    }
+
+    @Override
+    public void onClick(View v) {
+
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 
     public interface ExampleDialogListener{

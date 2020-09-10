@@ -61,7 +61,7 @@ public class DayAdapter extends RecyclerView.Adapter<DayAdapter.ViewHolder>{
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView dayName;
-        public RelativeLayout layout;
+        public CardView layout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

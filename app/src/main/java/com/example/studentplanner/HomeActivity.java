@@ -39,7 +39,7 @@ public class HomeActivity extends AppCompatActivity implements ExampleDialog.Exa
         NavHostFragment navHostFragment  = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.fragment);
         fragmentManager = getSupportFragmentManager();
         NavigationUI.setupWithNavController(bottomNavigationView, navHostFragment.getNavController());
-        init();
+//        init();
 
 
 
@@ -75,25 +75,27 @@ public class HomeActivity extends AppCompatActivity implements ExampleDialog.Exa
     @Override
     public void applyTexts(String name, String startTime, String endTime, String startDate, String endDate, String priority) {
 //        From here we send to the network and grab it later
-        Toast.makeText(this, name+" "+startTime+" "+endTime+" "+startDate+" "+endDate+" "+priority+" ", Toast.LENGTH_SHORT).show();}
-    private void init() {
-        fab=findViewById(R.id.fab);
-
-        fab.setOnClickListener(v->{
-            Intent i = new Intent(Intent.ACTION_PICK);
-            i.setType("image/*");
-            startActivityForResult(i,GALLERY_ADD_POST);
-        });
+        Toast.makeText(this, name+" "+startTime+" "+endTime+" "+startDate+" "+endDate+" "+priority+" ", Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==GALLERY_ADD_POST && resultCode==RESULT_OK){
-            Uri imgUri = data.getData();
-            Intent i = new Intent(HomeActivity.this,AddJournalActivity.class);
-            i.setData(imgUri);
-            startActivity(i);
-        }
-    }
+//    private void init() {
+//        fab=findViewById(R.id.fab);
+//
+//        fab.setOnClickListener(v->{
+//            Intent i = new Intent(Intent.ACTION_PICK);
+//            i.setType("image/*");
+//            startActivityForResult(i,GALLERY_ADD_POST);
+//        });
+//    }
+//
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if(requestCode==GALLERY_ADD_POST && resultCode==RESULT_OK){
+//            Uri imgUri = data.getData();
+//            Intent i = new Intent(HomeActivity.this,AddJournalActivity.class);
+//            i.setData(imgUri);
+//            startActivity(i);
+//        }
+//    }
 }

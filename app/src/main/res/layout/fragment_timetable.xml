@@ -17,8 +17,9 @@
             android:layout_height="wrap_content"
             android:text="@string/timetable_view"
             android:textSize="30sp"
+            android:gravity="center"
             android:textColor="@color/design_default_color_primary_dark"
-            android:textStyle="italic"
+            android:textStyle="bold"
             android:textAppearance="@style/Theme.AppCompat"
             android:layout_marginStart="10dp"/>
 
@@ -26,14 +27,21 @@
             android:id="@+id/add_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_title"
-            android:text="@string/new_task" />
+            android:layout_below="@+id/tv_title"
+            android:layout_marginTop="1dp"
+            android:gravity="center"
+            android:background="@color/colorLightGrey"
+            android:text="@string/new_task"
+            android:textColor="@color/design_default_color_primary_dark"
+            android:textSize="20sp"
+            app:icon="@drawable/ic_baseline_email_" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/timetable_recyclerview"
-            android:layout_below="@id/add_btn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_below="@id/add_btn"
+            android:layout_marginTop="4dp" />
 
     </RelativeLayout>
 

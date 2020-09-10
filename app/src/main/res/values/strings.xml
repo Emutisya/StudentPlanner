@@ -34,7 +34,7 @@
     <string name="dashboard_view">Dashboard View</string>
     <string name="events_view">Events View</string>
     <string name="journal_view">Journal View</string>
-    <string name="timetable_view">Timetable View</string>
+    <string name="timetable_view">Timetable</string>
     <string name="student_planner">Student Planner</string>
     <string name="student_planner_journal">Student Planner: Journal</string>
     <string name="april_1st">April 1st</string>

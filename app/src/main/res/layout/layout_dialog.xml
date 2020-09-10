@@ -7,7 +7,8 @@
         android:id="@+id/et_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Name"/>
+        android:hint="Name"
+        android:inputType="textCapSentences"/>
 
     <EditText
         android:id="@+id/et_startdate"
@@ -37,11 +38,21 @@
         android:layout_height="wrap_content"
         android:hint="End time" />
 
-    <EditText
-        android:id="@+id/et_priority"
+    <TextView
         android:layout_below="@id/et_endtime"
+        android:id="@+id/tv_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:text="Priority :"
+        android:textSize="18sp"/>
+
+    <Spinner
+        android:id="@+id/et_priority"
+        android:layout_toRightOf="@id/tv_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Priority" />
+        android:layout_below="@id/et_endtime"/>
 
 </RelativeLayout>
