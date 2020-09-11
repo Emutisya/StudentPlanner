@@ -15,18 +15,11 @@
         android:layout_below="@id/et_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Start Date"/>
-
-    <EditText
-        android:id="@+id/et_enddate"
-        android:layout_below="@id/et_startdate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="End date"/>
+        android:hint="Task Date"/>
 
     <EditText
         android:id="@+id/et_starttime"
-        android:layout_below="@id/et_enddate"
+        android:layout_below="@id/et_startdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Start Time"/>
@@ -45,10 +38,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_marginRight="10dp"
-        android:text="Priority :"
+        android:text="Description :"
         android:textSize="18sp"/>
 
-    <Spinner
+    <EditText
         android:id="@+id/et_priority"
         android:layout_toRightOf="@id/tv_spinner"
         android:layout_width="match_parent"

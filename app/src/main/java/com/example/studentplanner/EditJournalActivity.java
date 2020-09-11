@@ -52,8 +52,8 @@ public class EditJournalActivity extends AppCompatActivity {
         txtDate=findViewById(R.id.txtDateEditJournal);
         dialog=new ProgressDialog(this);
         dialog.setCancelable(false);
-        position=getIntent().getIntExtra("position",0);
-        id=getIntent().getIntExtra("journalId",0);
+        position = getIntent().getIntExtra("position",0);
+        id = getIntent().getIntExtra("journalId",0);
 
         txtAbout.setText(getIntent().getStringExtra("text"));
         //txtTag.setText(getIntent().getStringExtra("Ftext"));

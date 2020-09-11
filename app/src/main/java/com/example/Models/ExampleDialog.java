@@ -19,8 +19,8 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 import com.example.studentplanner.R;
 
 public class ExampleDialog extends AppCompatDialogFragment implements View.OnClickListener, AdapterView.OnItemSelectedListener {
-    private EditText startTime, endTime, name, startDate, endDate;
-    private Spinner prioritySpinner;
+    private EditText startTime, endTime, name, startDate;
+    private EditText description;
     private ExampleDialogListener listener;
 
     private int mDay;
@@ -41,12 +41,7 @@ public class ExampleDialog extends AppCompatDialogFragment implements View.OnCli
         startTime = view.findViewById(R.id.et_starttime);
         endTime = view.findViewById(R.id.et_endtime);
         startDate = view.findViewById(R.id.et_startdate);
-        endDate = view.findViewById(R.id.et_enddate);
-        prioritySpinner = view.findViewById(R.id.et_priority);
-
-        if (prioritySpinner != null){
-//            prioritySpinner.setOnItemSelectedListener(new On);
-        }
+        description = view.findViewById(R.id.et_priority);
 
         builder.setView(view)
                 .setTitle("Set Time")
@@ -62,12 +57,11 @@ public class ExampleDialog extends AppCompatDialogFragment implements View.OnCli
                         String mstartTime = startTime.getText().toString();
                         String mendTime = endTime.getText().toString();
                         String mname = name.getText().toString();
-                        String mendDate = endDate.getText().toString();
                         String mstartDate = startDate.getText().toString();
-//                        String mpriority = priority.getText().toString();
-                        String mpriority = "proiority loading";
+                        String mdescription = description.getText().toString();
 
-                        listener.applyTexts(mname,mstartTime, mendTime,mstartDate,mendDate,mpriority);
+
+                        listener.applyTexts(mname,mstartTime, mendTime,mstartDate,mdescription);
                     }
                 });
 
@@ -102,6 +96,6 @@ public class ExampleDialog extends AppCompatDialogFragment implements View.OnCli
     }
 
     public interface ExampleDialogListener{
-        void applyTexts(String name, String startTime, String endTime, String startDate, String endDate, String priority);
+        void applyTexts(String name, String startTime, String endTime, String startDate, String description);
     }
 }

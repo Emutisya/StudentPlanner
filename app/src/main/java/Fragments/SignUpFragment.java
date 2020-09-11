@@ -81,7 +81,6 @@ public class SignUpFragment extends Fragment {
             //validate fields first
             if (validate()) {
                 register();
-
             }
 
         });

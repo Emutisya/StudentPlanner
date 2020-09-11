@@ -1,6 +1,8 @@
 package com.example.studentplanner;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,13 +14,20 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -27,7 +36,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.TimeZone;
 
 
@@ -35,12 +46,14 @@ import java.util.TimeZone;
  * A simple {@link Fragment} subclass.
  */
 public class DashboardFragment extends Fragment {
-    private TextView textView, tvDebug, tvDate, tvDay;
+    private TextView textView, tvDebug, tvDate, tvDay, tv_testing;
     private final String url_get_timetable = "";
     private RecyclerView recyclerView;
 
     private TaskAdapter myAdapter;
     private List<Task> taskList;
+
+    private SharedPreferences sharedPreferences;
 
     public DashboardFragment() {
         // Required empty public constructor
@@ -56,6 +69,9 @@ public class DashboardFragment extends Fragment {
         tvDebug = (TextView) root.findViewById(R.id.tv_debug);
         tvDate = (TextView) root.findViewById(R.id.tv_date);
         tvDay = (TextView) root.findViewById(R.id.tv_day);
+        tv_testing = root.findViewById(R.id.tv_testing);
+
+        sharedPreferences=getContext().getApplicationContext().getSharedPreferences("user", Context.MODE_PRIVATE);
 
 //        Display dates
         Date date = Calendar.getInstance(TimeZone.getDefault()).getTime();
@@ -100,41 +116,74 @@ public class DashboardFragment extends Fragment {
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
 
-        taskList = new ArrayList<Task>();
-        Task newTask = new Task("IAP Class 1","STC","Group work","2 hours");
-        taskList.add(newTask);
-        Task newTask1 = new Task("IAP Class 2","STC","Group work","2 hours");
-        taskList.add(newTask1);
-        Task newTask2 = new Task("IAP Class 3","STC","Group work","2 hours");
-        taskList.add(newTask2);
-        Task newTask3 = new Task("IAP Class 4","STC","Group work","2 hours");
-        taskList.add(newTask3);
+//        taskList = new ArrayList<Task>();
+//        Task newTask = new Task("IAP Class 1","STC","Group work","2 hours");
+//        taskList.add(newTask);
+//        Task newTask1 = new Task("IAP Class 2","STC","Group work","2 hours");
+//        taskList.add(newTask1);
+//        Task newTask2 = new Task("IAP Class 3","STC","Group work","2 hours");
+//        taskList.add(newTask2);
+//        Task newTask3 = new Task("IAP Class 4","STC","Group work","2 hours");
+//        taskList.add(newTask3);
 
 //        Passing out data to the adapter
-        myAdapter = new TaskAdapter(taskList, getActivity());
-        recyclerView.setAdapter(myAdapter);
-//        loadFragmentData();
+        loadFragmentData();
         return root;
     }
 
     private void loadFragmentData() {
-        Log.d("Recycler View", "Data presented start");
-        ProgressDialog progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setMessage("Loading...");
+        Toast.makeText(getContext(), "Loading fragment data", Toast.LENGTH_SHORT).show();
+        ProgressDialog progressDialog = new ProgressDialog(getContext());
+        progressDialog.setMessage("Loading tasks");
         progressDialog.show();
 
-//        Display some data here using Volley and our adapter
-//        Generating my own array here - should use API response
-//            Task newTask = new Task("IAP Class","STC","Group work","2 hours");
-//            taskList.add(newTask);
-//            Toast.makeText(getActivity(), "TaskList:"+newTask, Toast.LENGTH_LONG).show();
-//
-////        Passing out data to the adapter
-//        myAdapter = new TaskAdapter(taskList, getActivity());
-//        recyclerView.setAdapter(myAdapter);
-//        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        progressDialog.dismiss();
-        Log.d("Recycler View", "Data presented end");
+        StringRequest request = new StringRequest(Request.Method.GET, Constant.GET_TASKS, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(getContext(), "Tasks loaded", Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
 
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    JSONArray jsonArray = new JSONArray(jsonObject.getString("timetables"));
+                    tv_testing.setText(jsonArray.toString());
+
+                    for (int i=0; i < jsonArray.length(); i++){
+                        JSONObject task = jsonArray.getJSONObject(i);
+                        Task tasknew = new Task();
+
+                        tasknew.setTaskName(task.getString("timetable_name"));
+                        tasknew.setTaskDate(task.getString("date"));
+                        tasknew.setTaskStartTime(task.getString("start_time"));
+                        tasknew.setTaskEndTime(task.getString("end_time"));
+                        tasknew.setTaskDescription(task.getString("description"));
+
+                        taskList.add(tasknew);
+                    }
+
+//                    myAdapter = new TaskAdapter(taskList, getContext());
+//                    recyclerView.setAdapter(myAdapter);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("VOLLEY", error.toString());
+            }
+        }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                String token = sharedPreferences.getString("token","");
+                HashMap<String,String> map=new HashMap<>();
+                map.put("Authorization","Bearer"+token);
+                return map;
+            }
+        };
+
+        RequestQueue queue = Volley.newRequestQueue(getActivity());
+        queue.add(request);
     };
 }

@@ -73,8 +73,13 @@
         android:layout_below="@+id/tv_debug"
         android:layout_width="match_parent"
         android:outlineAmbientShadowColor="@color/colorBlack"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:background="@drawable/style_color"
         android:scrollbars="vertical"/>
 
+    <TextView
+        android:id="@+id/tv_testing"
+        android:layout_below="@id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>

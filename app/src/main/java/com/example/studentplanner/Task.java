@@ -1,33 +1,65 @@
 package com.example.studentplanner;
 
 
+import java.sql.Time;
+
 //Task object
 public class Task {
     private String taskName;
-    private String taskLocation;
-    private String taskDuration;
-    private String taskNotes;
+    private String taskDate;
+    private String taskStartTime;
+    private String taskEndTime;
+    private String taskDescription;
 
-    public Task(String taskName, String taskLocation, String taskNotes, String taskDuration){
-        this.taskDuration = taskDuration;
-        this.taskLocation = taskLocation;
+    public Task(String taskName, String taskStartTime, String taskEndTime, String taskDescription, String taskDate){
+        this.taskStartTime = taskStartTime;
+        this.taskEndTime = taskEndTime;
+        this.taskDate = taskDate;
         this.taskName = taskName;
-        this.taskNotes = taskNotes;
+        this.taskDescription = taskDescription;
     }
 
-    public String getTaskDuration() {
-        return taskDuration;
-    }
-
-    public String getTaskLocation() {
-        return taskLocation;
+    public Task(){
+//        Empty constructor
     }
 
     public String getTaskName() {
         return taskName;
     }
 
-    public String getTaskNotes() {
-        return taskNotes;
+    public String getTaskDate() {
+        return taskDate;
+    }
+
+    public String getTaskDescription() {
+        return taskDescription;
+    }
+
+    public String getTaskEndTime() {
+        return taskEndTime;
+    }
+
+    public String getTaskStartTime() {
+        return taskStartTime;
+    }
+
+    public void setTaskDate(String taskDate) {
+        this.taskDate = taskDate;
+    }
+
+    public void setTaskDescription(String taskDescription) {
+        this.taskDescription = taskDescription;
+    }
+
+    public void setTaskEndTime(String taskEndTime) {
+        this.taskEndTime = taskEndTime;
+    }
+
+    public void setTaskName(String taskName) {
+        this.taskName = taskName;
+    }
+
+    public void setTaskStartTime(String taskStartTime) {
+        this.taskStartTime = taskStartTime;
     }
 }

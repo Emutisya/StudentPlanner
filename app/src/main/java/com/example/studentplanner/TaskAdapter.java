@@ -21,9 +21,10 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
 
 //    Incase we need to pass this data to another intent
     public static final String KEY_NAME = "name";
-    public static final String KEY_DURATION = "duration";
-    public static final String KEY_LOCATION = "location";
-    public static final String KEY_NOTES = "notes";
+    public static final String KEY_START_TIME = "startTime";
+    public static final String KEY_END_TIME = "endTime";
+    public static final String KEY_DATE = "date";
+    public static final String KEY_DESCRIPTION = "description";
 
     public TaskAdapter(List<Task> tasks, Context context){
         this.tasks = tasks;
@@ -41,10 +42,10 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
 
         final Task currentTask = tasks.get(position);
 
-        holder.taskNotes.setText(currentTask.getTaskNotes());
-        holder.taskDuration.setText(currentTask.getTaskDuration());
+        holder.taskDescription.setText(currentTask.getTaskDescription());
+        holder.taskStartTime.setText(currentTask.getTaskStartTime());
         holder.taskName.setText(currentTask.getTaskName());
-        holder.taskLocation.setText(currentTask.getTaskLocation());
+        holder.taskDate.setText(currentTask.getTaskDate());
 
         holder.optionsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,10 +61,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
                         switch(item.getItemId()){
                             case R.id.edit_btn:
                                 Toast.makeText(mContext, "Edit button pressed "+currentTask.getTaskName(), Toast.LENGTH_SHORT).show();
-                                break;
-
-                            case R.id.delete_btn:
-                                Toast.makeText(mContext, "Delete button pressed "+currentTask.getTaskName(), Toast.LENGTH_SHORT).show();
                                 break;
                                 
                         }
@@ -83,18 +80,19 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         public TextView taskName;
-        public TextView taskDuration;
-        public TextView taskLocation;
-        public TextView taskNotes;
+        public TextView taskDate;
+        public TextView taskStartTime;
+        public TextView taskEndTime;
+        public TextView taskDescription;
         public TextView optionsButton;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             taskName = (TextView) itemView.findViewById(R.id.task_name);
-            taskDuration = (TextView) itemView.findViewById(R.id.task_duration);
-            taskLocation = (TextView) itemView.findViewById(R.id.task_location);
-            taskNotes = (TextView) itemView.findViewById(R.id.task_notes);
+            taskDate = (TextView) itemView.findViewById(R.id.task_duration);
+            taskStartTime = (TextView) itemView.findViewById(R.id.task_location);
+            taskDescription = (TextView) itemView.findViewById(R.id.task_notes);
             optionsButton = (TextView) itemView.findViewById(R.id.textViewOptions);
         }
     }

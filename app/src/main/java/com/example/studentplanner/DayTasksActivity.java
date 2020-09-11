@@ -55,13 +55,13 @@ public class DayTasksActivity extends AppCompatActivity {
 
 //        Load tasks for the given day
         taskList = new ArrayList<Task>();
-        Task newTask = new Task("IAP Class 1","STC","Group work","2 hours");
+        Task newTask = new Task("Classwork 1", "10am", "3pm", "API Dev", "2020/25/04");
         taskList.add(newTask);
-        Task newTask1 = new Task("IAP Class 2","STC","Group work","2 hours");
+        Task newTask1 = new Task("Classwork 2", "10am", "3pm", "API Dev", "2020/25/04");
         taskList.add(newTask1);
-        Task newTask2 = new Task("IAP Class 3","STC","Group work","2 hours");
+        Task newTask2 = new Task("Classwork 3", "10am", "3pm", "API Dev", "2020/25/04");
         taskList.add(newTask2);
-        Task newTask3 = new Task("IAP Class 4","STC","Group work","2 hours");
+        Task newTask3 = new Task("Classwork 4", "10am", "3pm", "API Dev", "2020/25/04");
         taskList.add(newTask3);
 
 //        Passing out data to the adapter

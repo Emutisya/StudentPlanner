@@ -132,8 +132,6 @@ public class JournalFragment extends Fragment {
                         journal.setSelfLike(journalObject.getBoolean("selfLike"));
 
                         arrayList.add(journal);
-
-
                     }
                     journalAdapter= new JournalAdapter(getContext(),arrayList);
                     recyclerView.setAdapter(journalAdapter);

@@ -96,7 +96,7 @@ public class TimetableFragment extends Fragment implements ExampleDialog.Example
         exampleDialog.show(getActivity().getSupportFragmentManager(), "Example Dialog");
     }
 
-    public void applyTexts(String name, String startTime, String endTime, String startDate, String endDate, String priority) {
+    public void applyTexts(String name, String startTime, String endTime, String startDate, String priority) {
         startTime1.setText(startTime);
         endTime1.setText(endTime);
     }

@@ -3,8 +3,5 @@
 
     <item
         android:id="@+id/edit_btn"
-        android:title="Edit" />
-    <item
-        android:id="@+id/delete_btn"
-        android:title="Delete" />
+        android:title="Mark as done" />
 </menu>
