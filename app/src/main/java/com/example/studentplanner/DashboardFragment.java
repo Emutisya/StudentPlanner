@@ -32,6 +32,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -117,14 +118,19 @@ public class DashboardFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
 //        taskList = new ArrayList<Task>();
-//        Task newTask = new Task("IAP Class 1","STC","Group work","2 hours");
+//        Task newTask = new Task("Math III","10:00","11:00","Class", "2020-08-08");
 //        taskList.add(newTask);
-//        Task newTask1 = new Task("IAP Class 2","STC","Group work","2 hours");
+//        Task newTask1 = new Task("Material Science","12:00","14:00","Class", "2020-08-09");
 //        taskList.add(newTask1);
-//        Task newTask2 = new Task("IAP Class 3","STC","Group work","2 hours");
+//        Task newTask2 = new Task("CAT - Logic","14:00","15:00","CAT", "2020-08-10");
 //        taskList.add(newTask2);
-//        Task newTask3 = new Task("IAP Class 4","STC","Group work","2 hours");
+//        Task newTask3 = new Task("Training","19:00","20:00","Meeting", "2020-08-11");
 //        taskList.add(newTask3);
+//        Task newTask4 = new Task("Math III","10:00","11:00","Class", "2020-08-08");
+//        taskList.add(newTask4);
+////
+//        myAdapter = new TaskAdapter(taskList, getContext());
+//        recyclerView.setAdapter(myAdapter);
 
 //        Passing out data to the adapter
         loadFragmentData();
@@ -140,31 +146,50 @@ public class DashboardFragment extends Fragment {
         StringRequest request = new StringRequest(Request.Method.GET, Constant.GET_TASKS, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(getContext(), "Tasks loaded", Toast.LENGTH_SHORT).show();
                 progressDialog.dismiss();
-
+                Toast.makeText(getContext(), "Tasks Loaded!", Toast.LENGTH_SHORT).show();
                 try {
+                    List<Task> taskLists = new ArrayList<Task>();
                     JSONObject jsonObject = new JSONObject(response);
-                    JSONArray jsonArray = new JSONArray(jsonObject.getString("timetables"));
-                    tv_testing.setText(jsonArray.toString());
+                    JSONArray timetables = new JSONArray(jsonObject.getString("timetables"));
+                    tv_testing.setText(timetables.toString());
 
-                    for (int i=0; i < jsonArray.length(); i++){
-                        JSONObject task = jsonArray.getJSONObject(i);
-                        Task tasknew = new Task();
+                    if (timetables.length() != 0){
+                        for (int i=0; i< timetables.length(); i++){
+                            Task task1 = new Task();
+                            JSONObject timetables1 = (JSONObject) timetables.get(i);
 
-                        tasknew.setTaskName(task.getString("timetable_name"));
-                        tasknew.setTaskDate(task.getString("date"));
-                        tasknew.setTaskStartTime(task.getString("start_time"));
-                        tasknew.setTaskEndTime(task.getString("end_time"));
-                        tasknew.setTaskDescription(task.getString("description"));
+                            task1.setId(timetables1.getString("id"));
+                            task1.setTaskName(timetables1.getString("timetable_title"));
+                            task1.setTaskStartTime(timetables1.getString("start_time"));
+                            task1.setTaskEndTime(timetables1.getString("end_time"));
+                            task1.setTaskDescription(timetables1.getString("description"));
 
-                        taskList.add(tasknew);
+//                      Getting Day from Date
+                            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                            Date startDate = dateFormat.parse(timetables1.getString("date"));
+                            String day = (String) android.text.format.DateFormat.format("EEEE", startDate);
+
+//                      Getting current week from date
+                            Calendar c = Calendar.getInstance();
+                            c.setTime(startDate);
+                            int WeekOfYear = c.get(Calendar.WEEK_OF_YEAR);
+                            String WeekString = String.valueOf(WeekOfYear);
+
+                            task1.setTaskDate(day);
+
+                            taskLists.add(task1);
+                        }
+                    }
+                    else{
+                        Task task1 = new Task();
+                        task1.setTaskName("No tasks. Add from timetable page");
+                        taskLists.add(task1);
                     }
 
-//                    myAdapter = new TaskAdapter(taskList, getContext());
-//                    recyclerView.setAdapter(myAdapter);
-
-                } catch (JSONException e) {
+                    myAdapter = new TaskAdapter(taskLists, getContext());
+                    recyclerView.setAdapter(myAdapter);
+                } catch (JSONException | ParseException e) {
                     e.printStackTrace();
                 }
             }

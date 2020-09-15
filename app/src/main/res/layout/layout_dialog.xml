@@ -15,21 +15,24 @@
         android:layout_below="@id/et_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Task Date"/>
+        android:hint="Task Date (yyyy-MM-dd)"
+        android:inputType="date"/>
 
     <EditText
         android:id="@+id/et_starttime"
         android:layout_below="@id/et_startdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Start Time"/>
+        android:hint="Start Time"
+        android:inputType="time"/>
 
     <EditText
         android:id="@+id/et_endtime"
         android:layout_below="@id/et_starttime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="End time" />
+        android:hint="End time"
+        android:inputType="time"/>
 
     <TextView
         android:layout_below="@id/et_endtime"
@@ -46,6 +49,7 @@
         android:layout_toRightOf="@id/tv_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/et_endtime"/>
+        android:layout_below="@id/et_endtime"
+        android:inputType="textCapSentences"/>
 
 </RelativeLayout>

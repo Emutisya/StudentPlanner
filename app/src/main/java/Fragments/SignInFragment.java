@@ -75,6 +75,7 @@ public class SignInFragment extends Fragment {
         });
 
         btnSignIn.setOnClickListener(v -> {
+//            startActivity(new Intent(((AuthActivity)getContext()), HomeActivity.class));
             //validate fields first
             if (validate()) {
                 login();

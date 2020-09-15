@@ -5,6 +5,7 @@ import java.sql.Time;
 
 //Task object
 public class Task {
+    public String id;
     private String taskName;
     private String taskDate;
     private String taskStartTime;
@@ -21,6 +22,10 @@ public class Task {
 
     public Task(){
 //        Empty constructor
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getTaskName() {
@@ -41,6 +46,10 @@ public class Task {
 
     public String getTaskStartTime() {
         return taskStartTime;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public void setTaskDate(String taskDate) {
