@@ -136,20 +136,61 @@ public class DayTasksActivity extends AppCompatActivity {
                         int CurrentWeek = c1.get(Calendar.WEEK_OF_YEAR);
                         String CurrentWeekString = String.valueOf(CurrentWeek);
 
+//                        date.setText(WeekString+" "+CurrentWeekString);
+
 //                        Shows tasks only if it is for the Current Week
                         if (CurrentWeekString.equals(WeekString)){
-                            task1.setTaskName(timetables1.getString("timetable_title"));
-                            task1.setTaskStartTime(timetables1.getString("start_time"));
-                            task1.setTaskEndTime(timetables1.getString("end_time"));
-                            task1.setTaskDescription(timetables1.getString("description"));
+//                            Checking if task date == corresponding day
+                            Calendar c2 = Calendar.getInstance();
+                            c2.set(Calendar.WEEK_OF_YEAR, CurrentWeek);
+                            int day = c2.get(Calendar.DAY_OF_WEEK);
+                            switch (daySelected) {
+                                case "Sunday":
+                                    day = Calendar.SUNDAY;
+                                    break;
+                                case "Monday":
+                                    day = Calendar.MONDAY;
+                                    break;
+                                case "Tuesday":
+                                    day = Calendar.TUESDAY;
+                                    break;
+                                case "Wednesday":
+                                    day = Calendar.WEDNESDAY;
+                                    break;
+                                case "Thursday":
+                                    day = Calendar.THURSDAY;
+                                    break;
+                                case "Friday":
+                                    day = Calendar.FRIDAY;
+                                    break;
+                                case "Saturday":
+                                    day = Calendar.SATURDAY;
+                                    break;
+                            }
+                            c2.set(Calendar.DAY_OF_WEEK, day);
+                            DateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd");
+                            Date date2 = c2.getTime();
+                            String daySelectedDate = (String) android.text.format.DateFormat.format("yyyy-MM-dd", date2);
+                            Date startDate1 = dateFormat1.parse(timetables1.getString("date"));
+                            String taskDate = (String) android.text.format.DateFormat.format("yyyy-MM-dd", startDate1);
+                            date.setText(daySelectedDate);
+
+                            if (taskDate.equals(daySelectedDate)){
+                                task1.setTaskName(timetables1.getString("timetable_title"));
+                                task1.setTaskStartTime(timetables1.getString("start_time"));
+                                task1.setTaskEndTime(timetables1.getString("end_time"));
+                                task1.setTaskDescription(timetables1.getString("description"));
 
 //                        Formatting the date
-                            DateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd");
-                            Date startDate1 = dateFormat1.parse(timetables1.getString("date"));
-                            String day = (String) android.text.format.DateFormat.format("EEEE", startDate1);
-                            task1.setTaskDate(day);
+//                            DateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd");
+//                            Date startDate1 = dateFormat1.parse(timetables1.getString("date"));
+                                String days = (String) android.text.format.DateFormat.format("EEEE", startDate1);
+                                task1.setTaskDate(days);
 
-                            taskLists.add(task1);
+                                taskLists.add(task1);
+                            }else{
+//                                Show no tasks today photo
+                            }
                         };
                     }
 

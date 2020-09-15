@@ -19,11 +19,10 @@
 
         <TextView
             android:id="@+id/tv_name"
-            android:layout_width="323dp"
-            android:layout_height="71dp"
-            android:layout_toRightOf="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
             android:fontFamily="@font/greatvibes_regular"
-            android:paddingLeft="20dp"
             android:text="Student Planner"
             android:textColor="#2C0B32"
             android:textSize="50sp" />
@@ -31,7 +30,9 @@
         <ImageView
             android:id="@+id/image"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/girl2"/>
 
         <TextView
             android:id="@+id/tv_day"
@@ -59,10 +60,12 @@
         android:id="@+id/tv_debug"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
         android:layout_below="@+id/dashboard_top"
         android:background="@drawable/style_rectangle_pink"
         android:paddingLeft="20dp"
-        android:text="DUE:TASKS"
+        android:text="Tasks Due"
         android:textAlignment="center"
         android:textColor="@color/colorWhite"
         android:textSize="15sp"

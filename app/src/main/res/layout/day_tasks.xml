@@ -10,7 +10,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="11 September"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:gravity="center"
             android:textColor="@color/design_default_color_primary_dark" />
 
